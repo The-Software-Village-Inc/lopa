@@ -44,6 +44,6 @@ class Consequence_Barrier(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     description = models.CharField(max_length=1000)
     pfd = models.FloatField()
-    cause = models.ForeignKey(Consequence,
-                              on_delete=models.SET_NULL, null=True)
+    consequence = models.ForeignKey(Consequence,
+                                    on_delete=models.SET_NULL, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
