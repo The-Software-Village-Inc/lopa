@@ -8,12 +8,18 @@ class Project(models.Model):
     description = models.CharField(max_length=1000)
     created_at = models.DateTimeField()
 
+    def __str__(self):
+        return self.name
+
 
 class Event(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     description = models.CharField(max_length=1000)
     target_frequency = models.FloatField()
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.description
 
 
 class Cause(models.Model):
@@ -23,6 +29,9 @@ class Cause(models.Model):
     event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.description
+
 
 class Cause_Barrier(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -30,6 +39,9 @@ class Cause_Barrier(models.Model):
     pfd = models.FloatField()
     cause = models.ForeignKey(Cause, on_delete=models.SET_NULL, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.description
 
 
 class Consequence(models.Model):
@@ -39,6 +51,9 @@ class Consequence(models.Model):
     event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.description
+
 
 class Consequence_Barrier(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -47,3 +62,7 @@ class Consequence_Barrier(models.Model):
     consequence = models.ForeignKey(Consequence,
                                     on_delete=models.SET_NULL, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.description
+        
