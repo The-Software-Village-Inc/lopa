@@ -27,8 +27,7 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-
- - name: GitHub Actions Slack Build Notifications
+    - name: GitHub Actions Slack Build Notifications
       if: always()
       uses: act10ns/slack@v1.5.0
       env:
@@ -43,4 +42,4 @@ jobs:
         fields: |
           [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
           { "title": "Branch", "value": "${env.GITHUB_REF}", "short": true }]
-          
+              
