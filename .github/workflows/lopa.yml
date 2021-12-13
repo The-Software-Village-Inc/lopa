@@ -44,8 +44,6 @@ jobs:
           { "title": "Branch", "value": "${env.GITHUB_REF}", "
   
     - name: Migrate
-      run: |
-       python manage.py make migrations
-       python manage.py migrate
-
-              
+      env:
+        SECRET_KEY : ${{ secrets.SECRET_KEY }}
+      run: python manage.py migrate
