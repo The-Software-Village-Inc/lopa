@@ -139,5 +139,4 @@ cython_debug/
 
 virtualenv.txt
 .vscode
-staticfiles
 superuser.txt
