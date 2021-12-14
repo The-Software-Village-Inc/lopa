@@ -43,7 +43,7 @@ jobs:
           [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
           { "title": "Branch", "value": "${env.GITHUB_REF}", "
   
-    - name: Migrate
-      env:
-        SECRET_KEY : ${{ secrets.SECRET_KEY }}
-      run: python manage.py migrate
+#    - name: Migrate
+#      env:
+#        SECRET_KEY : ${{ secrets.SECRET_KEY }}
+#      run: python manage.py migrate
